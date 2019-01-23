@@ -1,0 +1,26 @@
+<div *ngIf="portfolio" class="tattoo-container">
+    <section class="tattoo-left">
+      <div class="tile" [ngStyle]="{'background-image': 'url('+portfolio.imagePath+')'}"></div>
+  
+    </section>
+    <section class="tattoo-right">
+      <div class="tattoo-back">
+          <div class="tattoo-back-action">Back</div>
+      </div>
+  
+      <div class="vertical-middle-container">
+          <div>
+              <p class="text">{{portfolio.style}}</p>
+            </div>
+            <br>        
+          <div>
+              <p class="bigger test-animation">{{portfolio.name | uppercase}}</p>
+            </div>
+            <br>
+          <div>
+              <p class="text">#TraditionalJapanese</p>
+            </div>
+      </div>
+  
+    </section>
+  </div>

@@ -1,0 +1,86 @@
+.tattoo-nav{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  margin-right: 25px;
+  margin-bottom: 20px;
+  .tattoo-arrow {
+      display: inline-block;
+      margin-right: -4px;
+      width: 50px;
+      height: 60px;
+      line-height: 60px;
+      background: #0f0f0f;
+      font-size: 13px;
+      color: #3c3c3c;
+      text-align: center;
+      cursor: pointer;
+  }
+  .arrow-left {
+      padding-left: 54px;
+      padding-right: 10px;
+      border-right: 1px solid #3c3c3c;
+      -webkit-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+      -moz-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+      transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+      &:hover {
+          color: #fff;
+      }
+      &:before {
+          content: '';
+          position: absolute;
+          top: calc(50% - 10px);
+          left: -46px;
+          width: 100px;
+          height: 20px;
+          background-image: url(//da-ink.com/wp-content/themes/daink/css/../img/assets/icon-arrow.svg);
+          background-position: left center;
+          background-size: 40px;
+          background-repeat: no-repeat;
+          -webkit-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+          -moz-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+          transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          transform: rotate(180deg);
+      }
+     
+  }
+  .arrow-left:hover.arrow-left:before {
+      -webkit-transform: translateX(-20px) rotate(180deg);
+      -moz-transform: translateX(-20px) rotate(180deg);
+      transform: translateX(-20px) rotate(180deg);
+  }
+  
+  .arrow-right {
+      padding-right: 54px;
+      padding-left: 10px;
+      -webkit-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+      -moz-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+      transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+      &:hover {
+          color: #fff;
+      }
+      &:after {
+          content: '';
+          position: absolute;
+          top: calc(50% - 10px);
+          right: 10px;
+          width: 40px;
+          height: 20px;
+          background-image: url(//da-ink.com/wp-content/themes/daink/css/../img/assets/icon-arrow.svg);
+          background-position: left center;
+          background-size: 40px;
+          background-repeat: no-repeat;
+          -webkit-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+          -moz-transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+          transition: all .18s cubic-bezier(0.615,.19,.305,.91);
+      }
+  }
+  .arrow-right:hover.arrow-right:after{
+      -webkit-transform:translateX(20px);
+      -moz-transform:translateX(20px);
+      transform:translateX(20px)};
+}

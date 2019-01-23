@@ -1,0 +1,14 @@
+<div [@routeSlide]="routeTrigger$ | async" class="container">
+    <nav class="float-right tattoo-nav">
+      <a [routerLink]="prev$ | async" [class.disabled]="(itemChange$ | async) === 0"
+        class=" tattoo-arrow arrow-left">
+        Prev
+      </a>
+      <a [routerLink]="next$ | async" [class.disabled]="(itemChange$ | async) === portfolio.length - 1"
+        class="tattoo-arrow arrow-right">
+        Next
+      </a>
+    </nav>
+ 
+    <router-outlet></router-outlet>
+</div>
