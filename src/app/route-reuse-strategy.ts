@@ -1,30 +1,32 @@
 import { ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy } from '@angular/router';
 import { TattooComponent } from './views/tattoo/tattoo.component';
 
-export class CustomReuseStrategy implements RouteReuseStrategy {
+export class CustomReuseStrategy extends RouteReuseStrategy {
 
-  handlers: {[key: string]: DetachedRouteHandle} = {};
+  handlers: { [key: string]: DetachedRouteHandle } = {};
 
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    return false;
+    return route.data.shouldReuse || false;
   }
 
-  store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
-    this.handlers[route.routeConfig.path] = null;
+  store(route: ActivatedRouteSnapshot, handle: {}): void {
+    if (route.data.shouldReuse) {
+      this.handlers[route.routeConfig.path] = handle;
+    }
   }
 
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
     return !!route.routeConfig && !!this.handlers[route.routeConfig.path];
   }
 
-  retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
-    if (!route.routeConfig) {
-      return null;
-    }
+  retrieve(route: ActivatedRouteSnapshot): {} {
+    if (!route.routeConfig) return null;
     return this.handlers[route.routeConfig.path];
   }
 
   shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
-    return curr.component !== TattooComponent;
+    return curr.component !== TattooComponent && future.routeConfig === curr.routeConfig;
   }
+
+  
 }
