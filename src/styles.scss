@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import '~@angular/material/theming';
+@include mat-core();
 
+.mat-drawer-content {
+    overflow:-webkit-paged-x !important;
+}
+mat-drawer .mat-drawer-inner-container {
+	overflow: unset;
+	background: black;
+}
 body {
 	width: 100wh;
 	height: 100vh;
@@ -18,17 +27,11 @@ div {
   display: inline-block;
 }
 
-
-
-
-
 .container {
 	display: flex;
 	align-items: center;
 	min-height: 100vh;
 }
-
-
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -76,5 +79,19 @@ table {
 	border-spacing: 0;
 }
 
-
+@-webkit-keyframes Gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes Gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes Gradient { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 

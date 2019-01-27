@@ -14,7 +14,7 @@ export class TattooComponent {
 
   constructor(route: ActivatedRoute, artistImagesService: ArtistImagesService, tattoosRouting: TattoosRoutingService) {
     const { index } = route.snapshot.params;
-   
+
     this.portfolio = artistImagesService.getTattooByIndex(index);
 
     tattoosRouting.itemChange$.next(+index);

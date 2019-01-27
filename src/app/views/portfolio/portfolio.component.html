@@ -1,0 +1,7 @@
+<div *ngIf="portfolio" class="masonry">
+    <div *ngFor="let portfolio of portfolio" class="masonry_container"> 
+          <img [src]="portfolio.imagePath">
+          <p class="title">{{portfolio.style}}</p>
+    </div>
+
+</div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { map, share, pairwise, startWith } from 'rxjs/operators';
 import { Portfolio } from '../../portfolio';
-import { RouterAnimations } from '../../animations/router.animation';
+import { tattoosPage} from '../../animations/tattoos.animation';
 import { ArtistImagesService } from '../../artist-images.service';
 import { TattoosRoutingService } from './tattoos-routing.service';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./tattoos.component.scss'],
   providers: [ TattoosRoutingService ],
   animations: [
-    RouterAnimations.routeSlide
+    tattoosPage
   ]
 })
 export class TattoosComponent {

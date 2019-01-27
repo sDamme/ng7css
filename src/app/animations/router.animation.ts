@@ -1,35 +1,13 @@
-import { trigger, transition, group, query, style, animate, stagger } from '@angular/animations';
+import {sequence, trigger, style, query as q, transition, animateChild} from '@angular/animations';
+const query = (s,a,o={optional:true})=>q(s,a,o);
 
-export class RouterAnimations {
-  static routeSlide =
-    trigger('routeSlide', [
-      transition('* <=> *', [
-        group([
-          query(':enter', [
-            group([
-            query('.vertical-middle-container',  [
-                style({transform: 'translateX({{offsetEnter}}%)'}),
-                animate('0.6s ease-in-out', style({transform: 'translateX(0%)'})),
-            ]),
-            
-            query('.tile',  [
-                style({ transform: 'translateY(100px)' }),
-                animate('0.6s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
-            ]),])
-          ], {optional: true}),
-          query(':leave', [
-            group([
-            query('.vertical-middle-container', [
-                style({transform: 'translateX(0%)'}),
-                animate('0.6s ease-in-out', style({transform: 'translateX({{offsetLeave}}%)', opacity: 0})),
-            ]),
-           
-            query('.tile',  [
-                style({ transform: 'translateY(0px)', opacity: 1 }),
-                animate('0.6s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(100px)', opacity: 0})),
-              ]),])
-          ], {optional: true}),
-        ])
-      ]),
-    ]);
-}
+export const routerTransition = trigger('routerTransition', [
+  transition('* => *', [
+    query(':enter, :leave', style({ position: 'fixed', width:'100%', left: '0', 'margin-right':'18px' })),
+    sequence([
+      query(':leave', animateChild()),
+
+      query(':enter', animateChild()),
+    ])
+  ])
+]);

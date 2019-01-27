@@ -7,13 +7,16 @@ import { TattoosComponent } from './views/tattoos/tattoos.component';
 import { TattooComponent } from './views/tattoo/tattoo.component';
 import { ArtistImagesService } from "./artist-images.service";
 import { TattoosRoutingService } from "./views/tattoos/tattoos-routing.service";
-
+import { PortfolioComponent } from './views/portfolio/portfolio.component';
+import { NavigationComponent } from './views/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TattoosComponent,
-    TattooComponent
+    TattooComponent,
+    PortfolioComponent,
+    NavigationComponent
     ],
   imports: [
     BrowserAnimationsModule,
